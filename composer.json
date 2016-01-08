@@ -68,10 +68,7 @@
 		]
 	},
 	"config": {
-		"preferred-install": "dist",
-		"github-oauth": {
-		    "github.com": "88e78965e9035406fc9bb9012915e0f4c44b6469"
-		}
+		"preferred-install": "dist"
 	},
 	"minimum-stability": "dev"
 }
