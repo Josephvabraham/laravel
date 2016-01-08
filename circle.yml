@@ -1,0 +1,28 @@
+machine:
+  timezone:
+    America/Chicago
+
+  php:
+    version: 5.5.11
+
+  environment:
+    ENVIRONMENT: development
+    DB_URL: 127.0.0.1
+    DB_NAME: circle_test
+    DB_USER: ubuntu
+    DB_DATABASE: circle_test
+    DB_HOST: 127.0.0.1
+    DB_USERNAME: ubuntu
+    MONGO_DB_HOST: localhost
+    MONGO_DB_DATABASE: OrderManager
+dependencies:
+  override:
+    - composer install --prefer-source --no-interaction
+  pre:
+    - printf "\n" | pecl install mongo
+  post:
+    - php artisan migrate --env=development
+    - php artisan db:seed --env=development
+test:
+  override:
+    - phpunit
